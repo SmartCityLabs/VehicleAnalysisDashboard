@@ -57,35 +57,6 @@ var output2 = '';
 var output3 = '';
 
 
-//get
-app.get('/mercedes', function(req, res){ 
-  ejs.renderFile('./views/mercedes.ejs',function(err, result) {
-		// render on success
-		if (!err) {
-			res.end(result);
-		}
-		// render or error
-		else {
-			res.end('An error occurred');
-			console.log(err);
-		}
-	});
-});
-
-app.get('/bmw', function(req, res){
-	 ejs.renderFile('./views/bmw.ejs',function(err, result) {
-			// render on success
-			if (!err) {
-				res.end(result);
-			}
-			// render or error
-			else {
-				res.end('An error occurred');
-				console.log(err);
-			}
-		});
-});
-
 app.get('/audi', function(req, res){
 	ejs.renderFile('./views/audi.ejs',function(err, result) {
 		// render on success
@@ -114,19 +85,6 @@ app.get('/jaguar', function(req, res){
         });
 });
 
-app.get('/ferrari', function(req, res){
-        ejs.renderFile('./views/ferrari.ejs',function(err, result) {
-                // render on success
-                if (!err) {
-                        res.end(result);
-                }
-                // render or error
-                else {
-                        res.end('An error occurred');
-                        console.log(err);
-                }
-        });
-});
 
 app.get('/porche', function(req, res){
         ejs.renderFile('./views/porche.ejs',function(err, result) {
@@ -236,7 +194,7 @@ app.get('/:car/bubbleGraph', function (req, res) {
 		file = "/../images/bmw.jpg";
 	}	
 	else if(car=="audi"){
-		file = "/../images/audi.jpg";
+		'./views/audiBubbleGraph.ejs';
 	}	
 	else if(car=="mercedes"){
 		file = "/../images/mercedes.jpg";
@@ -351,16 +309,14 @@ app.get('/:car/sankeygraph', function(req, res, results) {
 		file = './views/sankeyMerc.ejs'
 	}	
     
-    sankey.createGraph(function(err,results2011, results2012,results2013,results2014,results2015){
+    sankey.createGraph(function(err,results2013,results2014,results2015){
     	if(err){
 			throw err;
 		}else{
             console.log(results);
             ejs.renderFile(file,
 				{
-                    title : title, 
-                    output2011 : results2011, 
-                    output2012 : results2012, 
+                    title : title,  
                     output2013 : results2013,
                     output2014 : results2014,
                     output2015 : results2015

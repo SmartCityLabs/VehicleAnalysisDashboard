@@ -101,6 +101,12 @@ section{
     padding:100px 0;
 }
 
+.main-nav-font{
+    font-size: 25px;
+    font-style: Calibri;
+    font-color: white !important;
+}
+
 .bg-primary{
 background-color: #f05f40;
 }

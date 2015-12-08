@@ -23,8 +23,6 @@ function createGraph(callback, name)
 					   ],function(err,result) {
                            callback(err,result);
 						});
-		console.log("ARRRRRGGHHHHHHHHHHHHHHHHHHHH");
-		console.log(results);
 	   }   
   });
 });

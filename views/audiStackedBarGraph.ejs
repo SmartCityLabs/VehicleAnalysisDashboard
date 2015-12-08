@@ -17,7 +17,7 @@
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active">
-                <h2>Car Manufacturers Gasoline Comparison for 2015</h2>
+                <h2>Audi: Fuel Type Vs Model Statistics</h2>
                 <div id="container" style="min-width: 310px; width: 700px; height: 400px; margin: 0 auto"></div>
             </div><!-- end tab-pane -->
         </div><!-- end tab-content -->
@@ -35,7 +35,7 @@
                     text: 'Stacked column chart'
                 },
                 xAxis: {
-                    categories: ['Audi', 'Mercedes', 'BMW']
+                    categories: ['Auto AM S6', 'Auto AM S7', 'Auto AV S8', 'Automatic S6','Automatic S8']
                 },
                 yAxis: {
                     min: 0,
@@ -53,14 +53,14 @@
                     }
                 },
                 series: [{
-                    name: 'Premium',
-                    data: [<%= output1[0][2].total_products%>, <%= output1[1][3].total_products%>, <%= output1[2][4].total_products%>]
-                }, {
-                    name: 'Electricity',
-                    data: [<%= output1[0][0].total_products%>, <%= output1[1][0].total_products%>, <%= output1[2][2].total_products%>]
-                }, {
                     name: 'Diesel',
-                    data: [<%= output1[0][1].total_products%>, <%= output1[1][1].total_products%>, <%= output1[2][3].total_products%>]
+                    data: [<%= output1[0][0].total_products%>, <%= output1[0][1].total_products%>, <%= output1[0][3].total_products%>,<%= output1[0][4].total_products%>]
+                }, {
+                    name: 'Premium',
+                    data: [<%= output1[0][5].total_products%>, <%= output1[0][6].total_products%>,<%= output1[0][7].total_products%>,<%= output1[0][8].total_products%>]
+                }, {
+                    name: 'E85',
+                    data: [<%= output1[1][0].total_products%>, <%= output1[1][1].total_products%>,<%= output1[1][2].total_products%>,<%= output1[1][3].total_products%>]
                 }]
             });
         });  

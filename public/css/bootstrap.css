@@ -6394,6 +6394,12 @@ button.close {
 .visible-lg-inline-block {
   display: none !important;
 }
+
+.main-nav-font{
+    font-size: 25px;
+    font-style: Calibri;
+    font-color: white !important;
+} 
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
