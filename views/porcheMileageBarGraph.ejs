@@ -6,14 +6,14 @@
 <body>
     <% include header.ejs%>
     
-    <img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/audi.jpg" />
+    <img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/porche.jpg" />
     <div class="container" style="width:auto" align="center" role="tabpanel">
 	<div class="tabbable">
 		<ul class="nav nav-pills nav-justified">
 	        <li><a href="/" id="abt">About</a></li>
-        	<li><a id="bar" href="#">Mileage Statistics</a></li>
+        	<li class="active"><a id="bar" href="#">Mileage Statistics</a></li>
             <li><a id="pie" href="#">Drive Types</a></li>
-            <li class="active"><a id="model" href="#">Fuel Consumption</a></li>
+            <li><a id="model" href="#">Fuel Consumption</a></li>
             <li><a id="sankey" href="#">Yearly Statistics</a></li>
             <li><a id="bubble" href="#">Class Statistics</a></li>  
 
@@ -23,7 +23,7 @@
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active">
-                <h2>Fuel Consumption Per Annum Vs Audi Make Type </h2>
+                <h2>Average City/Highway Mileage Vs Porche Make Type </h2>
                 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
             </div><!-- end tab-pane -->
         </div><!-- end tab-content -->
@@ -35,11 +35,9 @@
     <script type="text/javascript">
     $(function () {
         $('#container').highcharts({
-            chart: {
-                type: 'column'
-            },
+            
             title: {
-                text: 'Average Fuel Cost Per Annum'
+                text: ''
             },
             subtitle: {
                 text: ''
@@ -65,7 +63,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Average Fuel Cost Per Annum'
+                    text: 'Miles/hour'
                 }
             },
             tooltip: {
@@ -83,12 +81,22 @@
                 }
             },
             series: [{
-                name: 'Audi Make Type',
-                data: [<%= output1[0]._id.fuel%>, <%= output1[1]._id.fuel%>,<%= output1[2]._id.fuel%>,<%= output1[3]._id.fuel%>,
-                       <%= output1[4]._id.fuel%>,<%= output1[5]._id.fuel%>,<%= output1[6]._id.fuel%>,<%= output1[7]._id.fuel%>,
-                       <%= output1[8]._id.fuel%>,<%= output1[9]._id.fuel%>,<%= output1[10]._id.fuel%>]
+                type: 'column',
+                name: 'Highway Mileage',
+                data: [<%= output1[0]._id.highway%>, <%= output1[1]._id.highway%>,<%= output1[2]._id.highway%>,<%= output1[3]._id.highway%>,
+                       <%= output1[4]._id.highway%>,<%= output1[5]._id.highway%>,<%= output1[6]._id.highway%>,<%= output1[7]._id.highway%>,
+                       <%= output1[8]._id.highway%>,<%= output1[9]._id.highway%>,<%= output1[10]._id.highway%>]
 
-            }]
+            },
+            {
+                type: 'spline',
+                name: 'City Mileage',
+                data: [<%= output1[0]._id.city%>, <%= output1[1]._id.city%>,<%= output1[2]._id.city%>,<%= output1[3]._id.city%>,
+                       <%= output1[4]._id.city%>,<%= output1[5]._id.city%>,<%= output1[6]._id.city%>,<%= output1[7]._id.city%>,
+                       <%= output1[8]._id.city%>,<%= output1[9]._id.city%>,<%= output1[10]._id.city%>]
+
+            }
+            ]
         });
     });
         

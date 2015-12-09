@@ -1,32 +1,30 @@
 <!DOCTYPE HTML><html>
 <head>
     <% include head.ejs%>
-</head>
+    </head>
 <body>
     <% include header.ejs%>
-    <img style="margin-bottom:10px; align-self:center" class="active visible-lg img-responsive" src="/../images/bmw.jpg" />
+    <img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/jaguar.jpg" />
     <div class="container" style="width:auto" align="center" role="tabpanel">
 	<div class="tabbable">
 		<ul class="nav nav-pills nav-justified">
 	        <li><a href="/" id="abt">About</a></li>
-        	<li><a id="bar" href="#">2015 Ratings</a></li>
-            <li><a id="pie" href="#">Sales Ratio</a></li>
-            <li><a id="model" href="#">Compare Models</a></li>
-            <li class="active"><a id="sankey" href="#">Over Years</a></li>
-            <li><a id="bubble" href="#">Top Rated Cars</a></li>   
-            
-                 
+          <li><a id="bar" href="#">Mileage Statistics</a></li>
+            <li><a id="pie" href="#">Drive Types</a></li>
+            <li><a id="model" href="#">Fuel Consumption</a></li>
+            <li  class="active"><a id="sankey" href="#">Yearly Statistics</a></li>
+            <li><a id="bubble" href="#">Class Statistics</a></li>      
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active">
-                <h2>Analyse Drive types released over the years 2011-15</h2>
-                <div id="container" style="min-width: 310px; width: 700px; height: 400px; margin: 0 auto"></div>
+                <h2>Drive Type Contribution from 2013 - 2015</h2>
+                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
             </div><!-- end tab-pane -->
         </div><!-- end tab-content -->
 	</div><!---end tabbable -->
     </div><!-- end container -->
     
-        
+   
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["sankey"]});
@@ -38,21 +36,18 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Num of Models');
         data.addRows([
-          [ '2011', 'Rear-Wheel Drive', <%= output2011[0][1].total_products%> ],
-          [ '2012', 'Rear-Wheel Drive', <%= output2012[0][1].total_products%> ],
-          [ '2013', 'Rear-Wheel Drive', <%= output2013[0][1].total_products%> ],
+          [ '2013', 'Rear-Wheel Drive', <%= output2013[0][0].total_products%> ],
           [ '2014', 'Rear-Wheel Drive', <%= output2014[0][1].total_products%> ],
-          [ '2015', 'Rear-Wheel Drive', <%= output2015[0][1].total_products%> ],
-          [ '2011', 'All-Wheel Drive', <%= output2011[0][0].total_products%> ],
-          [ '2012', 'All-Wheel Drive', <%= output2012[0][0].total_products%> ],
-          [ '2013', 'All-Wheel Drive', <%= output2013[0][0].total_products%> ],
-          [ '2014', 'All-Wheel Drive', <%= output2014[0][0].total_products%> ],
+          [ '2015', 'Rear-Wheel Drive', <%= output2015[0][0].total_products%> ],
+          [ '2013', 'All-Wheel Drive', <%= output2013[0][1].total_products%> ],
+          [ '2014', 'All-Wheel Drive', <%= output2014[0][1].total_products%> ],
           [ '2015', 'All-Wheel Drive', <%= output2015[0][0].total_products%> ]
         ]);
 
         // Sets chart options.
         var options = {
-          width: 600,
+          width:300,
+          height:480
         };
 
         // Instantiates and draws our chart, passing in some options.

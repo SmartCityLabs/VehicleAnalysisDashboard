@@ -2,249 +2,13 @@
 <html lang="en">
   <head>
     <% include head.ejs%>
-   
-    <script type="text/javascript">
-    
-    $(function () {
-
-    $('#container1').highcharts({
-
-        chart: {
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-
-        title: {
-            text: ''
-        },
-
-        pane: {
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 3,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#000000',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 302,
-
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
-
-            tickPixelInterval: 30,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: 'km/h'
-            },
-            plotBands: [{
-                from: 0,
-                to: 120,
-                color: '#55BF3B' // green
-            }, {
-                from: 120,
-                to: 230,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 230,
-                to: 302,
-                color: '#DF5353' // red
-            }]
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [160],
-            tooltip: {
-                valueSuffix: ' km/h'
-            }
-        }]
-
-    },
-        // Add some life
-        function (chart) {
-            if (!chart.renderer.forExport) {
-                setInterval(function () {
-                    var point = chart.series[0].points[0],
-                        newVal,
-                        inc = Math.round((Math.random() - 0.5) * 20);
-
-                    newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 330) {
-                        newVal = point.y - inc;
-                    }
-
-                    point.update(newVal);
-
-                }, 3000);
-            }
-        });
-});
-		</script>
-        
-        <script type="text/javascript">
-    $(function () {
-
-    $('#container2').highcharts({
-
-        chart: {
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-
-        title: {
-            text: ''
-        },
-
-        pane: {
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 1,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#000000',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 7,
-
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
-
-            tickPixelInterval: 30,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: '1/min x 1000'
-            },
-            plotBands: [{
-                from: 0,
-                to: 4,
-                color: '#FFFFFF' // white
-            }, {
-                from: 4,
-                to: 6,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 6,
-                to: 7,
-                color: '#DF5353' // red
-            }]
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [6],
-            tooltip: {
-                valueSuffix: ' 1/min x 1000'
-            }
-        }]
-
-    },
-        // Add some life
-        function (chart) {
-            if (!chart.renderer.forExport) {
-                setInterval(function () {
-                    var point = chart.series[0].points[0],
-                        newVal,
-                        inc = Math.round((Math.random() - 0.5) * 10);
-
-                    newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 8) {
-                        newVal = point.y - inc;
-                    }
-
-                    point.update(newVal);
-
-                }, 3000);
-            }
-        });
-    });
-    </script>
+  
   </head>
 
 
 <body>
 <% include header.ejs%>
- <img style="margin-bottom:10px; align-self:center" class="active visible-lg img-responsive" src="/../images/mercedes.jpg" />
+<img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/porche.jpg" />
     
 <% include midder.ejs%>	
 
@@ -252,15 +16,21 @@
         <div class="tab-content">
         	<div class="tab-pane active" id="tab0">
       			<div class="jumbotron">
-      			<h1 style="margin-top:-30px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; padding-top:-20px"> Porche. </h1>
-                <h3 style="margin-top:-10px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Porche, there is no substitute.</h3>
-                 <p style="font-size:16px; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; margin-bottom:-20px" > This is Porche!</p> </div>
+      			<h1 style="margin-top:-30px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; padding-top:-20px"> Porche</h1>
+                <h3 style="margin-top:-10px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif"><u>Porche, there is no substitute.</u></h3>
+                 <p style="font-size:16px; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; margin-bottom:-20px" >Porsche cars have a virtually untarnished reputation and are considered among the finest performance vehicles in the world. It's a reputation that's well-deserved. With razor-sharp handling and power aplenty, Porsche vehicles offer a driving experience like no other. It's little wonder that, for many, the marque has come to define the sports car category. For years, the only Porsches available were sleek sports cars, but the manufacturer recently expanded its lineup to include other types of vehicles.
+
+The brand has its roots in the Porsche Engineering Office, founded in Stuttgart, Germany, by Ferdinand Porsche in 1931. Porsche brought with him years of experience as an automotive engineer; in the '20s, while employed with Daimler, his skill was tapped to create Mercedes' iconic SS and SSK sports cars. Porsche has long had close ties with Volkswagen, and the first Porsche vehicles were small two-seat sports cars that were largely based on VW chassis. From 1948-'50, most of these early Porsche cars (the brainchild of Porsche and his son Ferry) were actually built in Austria before production was switched to Zuffenhausen, Germany. Ferdinand's first real production car was the VW Beetle, so it was no surprise that his sports cars used those components and had their air-cooled engine mounted in the rear.
+
+The 1950s saw the birth of two icons, the 356 Speedster with its low-cut windshield and the lightweight, midengined 550 Spyder. Both cars helped Porsche rack up a multitude of wins on the racetrack. In the mid-'60s, the 356 made way for the revered 911. Powered by an all-new six-cylinder engine, the coupe scored two consecutive wins at Monte Carlo. Following in the footsteps of its predecessors, the 911's air-cooled flat-six engine was located in the rear of the vehicle.
+
+By the time the '70s rolled around, Porsche had introduced the 914 (the "affordable" Porsche with a midengine design and a targa top), the mighty 911 turbo, the disrespected 924 (powered by a weak front-mounted, water-cooled inline four) and the flagship 928 (front-mounted V8, four-seat coupe). The '80s saw the birth of the 956, a car that went on to become the most successful racecar of all time. The twin-turbo, all-wheel-drive 959 was also launched; it became the first sports car to win the Paris-Dakar Rally and the street version could hit nearly 200 mph. The athletic 944 debuted in 1983, as did a convertible version of the 911, something that had been missing for some years. The '80s also saw the rebirth of the 924, now with some muscle courtesy of the 944's strong-for-the-time (147-horsepower) inline four.
+
+By the early 1990s the 928 had been discontinued and the 944 was replaced by the similar 968. Because of a lack of dynamic product and a tough market climate, Porsche was suffering financially. The company's savior, the Boxster roadster, debuted in 1997 and brought back the spirit of the old 550 Spyder. In 2003, Porsche committed what purists considered a sin as the company brought the Cayenne SUV to the market. However, once those enthusiasts discovered the Cayenne's sporting performance (especially in 450-hp turbo form) all was forgiven. The following year, Porsche brought out the ferocious (605-hp) Carrera GT supercar.
+
+Today, Porsche's lineup is quite broad for a specialty automaker and now even includes a luxury super sport sedan, the Panamera. Throughout its history, Porsche has exhibited amazing resilience, weathering changes in consumer tastes and the economic climate. As such, it's safe to assume that this ever-robust company will continue to be known for making vehicles that excel at performance, luxury and usability.</p> </div>
                 
             
-                <fieldset style="min-width:350px; max-width:650px; height:350px;">
-                <div id="container1" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
-                <div id="container2" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
-                </fieldset>
             </div><!-- end tab-pane -->
         </div><!-- end tab-content -->
 	</div><!---end tabbable -->

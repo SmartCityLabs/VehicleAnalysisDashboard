@@ -3,242 +3,7 @@
   <head>
     <% include head.ejs%>
 	
-    <script type="text/javascript">
-        $(function () {
-
-    $('#container1').highcharts({
-
-        chart: {
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-
-        title: {
-            text: ''
-        },
-
-        pane: {
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 3,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#000000',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 553,
-
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
-
-            tickPixelInterval: 30,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: 'km/h'
-            },
-            plotBands: [{
-                from: 0,
-                to: 200,
-                color: '#55BF3B' // green
-            }, {
-                from: 200,
-                to: 330,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 330,
-                to: 553,
-                color: '#DF5353' // red
-            }]
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [160],
-            tooltip: {
-                valueSuffix: ' km/h'
-            }
-        }]
-
-    },
-        // Add some life
-        function (chart) {
-            if (!chart.renderer.forExport) {
-                setInterval(function () {
-                    var point = chart.series[0].points[0],
-                        newVal,
-                        inc = Math.round((Math.random() - 0.5) * 20);
-
-                    newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 330) {
-                        newVal = point.y - inc;
-                    }
-
-                    point.update(newVal);
-
-                }, 3000);
-            }
-        });
-});
-		</script>
-        
-        <script type="text/javascript">
-    $(function () {
-
-    $('#container2').highcharts({
-
-        chart: {
-            type: 'gauge',
-            plotBackgroundColor: null,
-            plotBackgroundImage: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-
-        title: {
-            text: ''
-        },
-
-        pane: {
-            startAngle: -150,
-            endAngle: 150,
-            background: [{
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#FFF'],
-                        [1, '#333']
-                    ]
-                },
-                borderWidth: 0,
-                outerRadius: '109%'
-            }, {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                    stops: [
-                        [0, '#333'],
-                        [1, '#FFF']
-                    ]
-                },
-                borderWidth: 1,
-                outerRadius: '107%'
-            }, {
-                // default background
-            }, {
-                backgroundColor: '#000000',
-                borderWidth: 0,
-                outerRadius: '105%',
-                innerRadius: '103%'
-            }]
-        },
-
-        // the value axis
-        yAxis: {
-            min: 0,
-            max: 9,
-
-            minorTickInterval: 'auto',
-            minorTickWidth: 1,
-            minorTickLength: 10,
-            minorTickPosition: 'inside',
-            minorTickColor: '#666',
-
-            tickPixelInterval: 30,
-            tickWidth: 2,
-            tickPosition: 'inside',
-            tickLength: 10,
-            tickColor: '#666',
-            labels: {
-                step: 2,
-                rotation: 'auto'
-            },
-            title: {
-                text: '1/min x 1000'
-            },
-            plotBands: [{
-                from: 0,
-                to: 6,
-                color: '#FFFFFF' // white
-            }, {
-                from: 6,
-                to: 8,
-                color: '#DDDF0D' // yellow
-            }, {
-                from: 8,
-                to: 9,
-                color: '#DF5353' // red
-            }]
-        },
-
-        series: [{
-            name: 'Speed',
-            data: [6],
-            tooltip: {
-                valueSuffix: ' 1/min x 1000'
-            }
-        }]
-
-    },
-        // Add some life
-        function (chart) {
-            if (!chart.renderer.forExport) {
-                setInterval(function () {
-                    var point = chart.series[0].points[0],
-                        newVal,
-                        inc = Math.round((Math.random() - 0.5) * 10);
-
-                    newVal = point.y + inc;
-                    if (newVal < 0 || newVal > 8) {
-                        newVal = point.y - inc;
-                    }
-
-                    point.update(newVal);
-
-                }, 3000);
-            }
-        });
-    });
-    </script>
-  
+   
   </head>
 
 
@@ -251,9 +16,27 @@
     <div class="tab-content">
         	<div class="tab-pane active" id="tab0">
       			<div class="jumbotron">
-      			<h1 style="margin-top:-30px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; padding-top:-20px"> Audi. </h1>
-                <h3 style="margin-top:-10px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Advancement through Technology</h3>
-                 <p style="font-size:16px; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; margin-bottom:-20px" > This is Audi. </p>
+      			<h1 style="margin-top:-30px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; padding-top:-20px"> Audi</h1>
+                <h3 style="margin-top:-10px;font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif"><u>Advancement through Technology.</u></h3>
+                 <p style="font-size:16px; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; margin-bottom:-20px; text-align:'justify' !important" > In business for more than 100 years, Audi is an automaker that builds luxury cars and SUVs. The company was started in Germany and has remained Deutschland-based to this day.
+
+"Audi Automobile Works" entered the German car-manufacturing business in 1910 and remained independent until the Great Depression. Because Audi's founder, August Horch, had left a 10-year-old company bearing his own name, he chose a Latin form of his name -- Audi -- for his new company. Audi joined with three other auto manufacturers in 1932 to form Auto Union. Audi, the only surviving nameplate from that union, was purchased by Volkswagen in 1964.
+
+During the 1970s, Audi started to get noticed in the U.S. with its 100LS luxury sedan and compact and sprightly Fox coupe and sedan. By the late '70s the brand had replaced the dated 100LS with its new 5000 luxury sedan.
+
+Every manufacturer has its defining moments. For Audi, one such moment came in March 1980 at the Geneva Motor Show. The automaker unveiled the Audi Quattro, an all-wheel-drive sport coupe that was met with a wildly enthusiastic response on the show floor. The Quattro's all-wheel-drive system went on to help Audi win accolades in motorsports and it was eventually integrated into the entire model range.
+
+That year also saw the Fox replaced by the 4000. Four years later, the range-topping 5000 was redesigned. Audi's sales shot up nearly 50 percent, thanks chiefly to that newly aerodynamic yet handsome flagship that featured what would become an Audi hallmark -- an elegantly stylish, high-quality cabin.
+
+Sadly, Audi's fortunes turned for the worse when the carmaker's 5000 model was accused of unintended acceleration in a 60 Minutes television episode. A subsequent government investigation found Audi innocent of the charge, but the resulting drop in sales nearly put Audi out of business in the U.S.
+
+The late '80s saw Audi redesign the 4000, renaming it the 80 and 90 (with the 90 having more equipment) and also rename the 5000, dubbing it the 100 or 200. The 200 featured a turbocharged five-cylinder with all-wheel drive as opposed to a non-turbo five and front-wheel drive, as on the 100. A Coupe also debuted, as did a new flagship, a V8-powered 200 sedan simply called the "V8".
+
+The following decade saw the A4 and Cabriolet models, as well as the renaming of the 100 to A6. The stunning A8 was introduced as Audi's new flagship, boasting all-aluminum construction and a beefy V8. High-performance versions of the various models bowed, dubbed S4, S6 and S8.
+
+The start of the new millennium brought the TT, Audi's low-slung sport coupe (and later roadster). It also introduced RS versions of the A4 and A6, providing even more performance than "S" variants. In addition to "S" and "RS" versions of the TT, Audi's more recent releases include the A3 hatchback, Q5 crossover SUV, slick A5 coupe, exotic R8 sports car and A7 luxury hatchback sedan.
+
+Today, Audi continues its success in the prestige car marketplace by offering a wide range of vehicles that impressively combine luxury and sport. </p>
 
 
                 </div>

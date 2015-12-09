@@ -6,7 +6,7 @@
 <body>
     <% include header.ejs%>
     
-    <img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/audi.jpg" />
+    <img style="margin-bottom:10px; align-self:center; height:50%; width:100%" class="active visible-lg img-responsive" src="/../images/porche.jpg" />
     <div class="container" style="width:auto" align="center" role="tabpanel">
 	<div class="tabbable">
 		<ul class="nav nav-pills nav-justified">
@@ -23,8 +23,8 @@
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active">
-                <h2>Fuel Consumption Per Annum Vs Audi Make Type </h2>
-                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <h2>Fuel Consumption Per Annum Vs Porche Make Type </h2>
+                <div id="container" style="min-width: 310px;  height: 400px; margin: 0 auto"></div>
             </div><!-- end tab-pane -->
         </div><!-- end tab-content -->
 	</div><!---end tabbable -->
@@ -65,7 +65,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Average Fuel Cost Per Annum'
+                    text: 'Fuel cost in dollars'
                 }
             },
             tooltip: {
@@ -83,7 +83,7 @@
                 }
             },
             series: [{
-                name: 'Audi Make Type',
+                name: 'Porche Make Type',
                 data: [<%= output1[0]._id.fuel%>, <%= output1[1]._id.fuel%>,<%= output1[2]._id.fuel%>,<%= output1[3]._id.fuel%>,
                        <%= output1[4]._id.fuel%>,<%= output1[5]._id.fuel%>,<%= output1[6]._id.fuel%>,<%= output1[7]._id.fuel%>,
                        <%= output1[8]._id.fuel%>,<%= output1[9]._id.fuel%>,<%= output1[10]._id.fuel%>]
