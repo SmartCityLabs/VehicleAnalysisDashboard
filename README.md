@@ -1,11 +1,17 @@
-# CarDashboard
+# TheRoadRunners
 --------------
 
-> Team project developed for CMPE280 (Spring 2015)
+> Team project developed for CMPE285 (Fall 2015)
 > at San Jose State University
- - Team 10 project
- - Title: Car Dashboard Design
- - Website: https://cardashboard.herokuapp.com/
+ - Title: The Road Runners
+ - Website: https://TheRoadRunners.herokuapp.com/
+ 
+ ##Team Member
+--------------
+* Aneesha Punreddy 
+* Joe Thomas
+* Navya Gandhi
+* Rashmitha Jajur
 
 ##Requirements
 --------------
@@ -50,9 +56,4 @@ Following technologies have been used in order to develop this project
 * D3JS and HighCharts API to create Analyze charts
 * MongoLab for database
 
-##Team Member
---------------
-* Aneesha Punreddy
-* Joe Thomas
-* Navya Gandhi
-* Rashmitha Jajur
+
